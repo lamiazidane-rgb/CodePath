@@ -1,0 +1,147 @@
+/* Pages visiteur (accueil, connexion, inscription) — charte PYLO. */
+
+.vs-root {
+    -vs-bg: #F6F3FD; -vs-soft: #F1ECFC; -vs-soft2: #E6DCF8;
+    -vs-green: #1F9D55; -vs-green-soft: #E3F6EA; -vs-red: #D64545; -vs-red-soft: #FDEAEA;
+    -fx-background-color: -vs-bg;
+}
+.vs-scroll, .vs-scroll > .viewport { -fx-background-color: transparent; -fx-background: transparent; }
+.vs-scroll { -fx-padding: 0; -fx-border-width: 0; }
+.vs-home, .vs-auth-stage { -fx-background-color: -vs-bg; }
+.vs-auth-stage { -fx-alignment: center; }
+.vs-section { -fx-padding: 30 40 14 40; }
+
+/* ---------- Textes ---------- */
+.vs-muted { -fx-text-fill: -pylo-muted; -fx-font-size: 12px; }
+.vs-h1 { -fx-text-fill: -pylo-text; -fx-font-size: 54px; -fx-font-weight: bold; }
+.vs-h1-accent { -fx-text-fill: -pylo-primary; -fx-font-size: 54px; -fx-font-weight: bold; }
+.vs-h2 { -fx-text-fill: -pylo-text; -fx-font-size: 22px; -fx-font-weight: bold; }
+.vs-lead { -fx-text-fill: -pylo-muted; -fx-font-size: 14px; -fx-line-spacing: 3; }
+.vs-card-title { -fx-text-fill: -pylo-text; -fx-font-size: 15px; -fx-font-weight: bold; }
+.vs-feat-title { -fx-text-fill: -pylo-text; -fx-font-size: 13px; -fx-font-weight: bold; }
+.vs-perk { -fx-text-fill: -pylo-text; -fx-font-size: 12px; }
+.vs-perk-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 14px; }
+
+/* ---------- Logo ---------- */
+.vs-logo-mark { -fx-background-color: -pylo-primary; -fx-background-radius: 10; -fx-min-width: 34; -fx-min-height: 34; -fx-pref-width: 34; -fx-pref-height: 34; -fx-max-width: 34; -fx-max-height: 34; }
+.vs-logo-icon { -fx-icon-color: white; -fx-icon-size: 18px; }
+.vs-logo-text { -fx-text-fill: -pylo-primary-dark; -fx-font-size: 22px; -fx-font-weight: bold; }
+.vs-light .vs-logo-mark { -fx-background-color: white; }
+.vs-light .vs-logo-icon { -fx-icon-color: -pylo-primary; }
+.vs-light .vs-logo-text { -fx-text-fill: white; }
+
+/* ---------- Boutons ---------- */
+.vs-btn-icon { -fx-icon-color: white; -fx-icon-size: 14px; }
+.vs-primary {
+    -fx-background-color: -pylo-primary; -fx-background-radius: 12; -fx-text-fill: white;
+    -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 12 24; -fx-graphic-text-gap: 8; -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(126, 89, 202, 0.35), 12, 0, 0, 4);
+}
+.vs-primary:hover { -fx-background-color: -pylo-primary-dark; }
+.vs-secondary {
+    -fx-background-color: white; -fx-background-radius: 12; -fx-border-color: -pylo-border; -fx-border-radius: 12;
+    -fx-text-fill: -pylo-primary-dark; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 11 22; -fx-cursor: hand;
+}
+.vs-secondary:hover { -fx-background-color: -vs-soft; }
+.vs-white { -fx-background-color: white; -fx-background-radius: 12; -fx-text-fill: -pylo-primary-dark; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 12 24; -fx-graphic-text-gap: 8; -fx-cursor: hand; }
+.vs-white .vs-btn-icon { -fx-icon-color: -pylo-primary-dark; }
+.vs-white:hover { -fx-background-color: -vs-soft; }
+.vs-link { -fx-background-color: transparent; -fx-text-fill: -pylo-muted; -fx-font-size: 12px; -fx-padding: 0; -fx-graphic-text-gap: 6; -fx-cursor: hand; }
+.vs-link:hover { -fx-text-fill: -pylo-primary; }
+.vs-link-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 13px; }
+.vs-link-strong { -fx-background-color: transparent; -fx-text-fill: -pylo-primary; -fx-font-size: 12px; -fx-font-weight: bold; -fx-padding: 0; -fx-graphic-text-gap: 6; -fx-cursor: hand; }
+.vs-link-strong:hover { -fx-underline: true; }
+
+/* ---------- Navigation + pied de page ---------- */
+.vs-nav { -fx-background-color: white; -fx-padding: 14 40; -fx-border-color: transparent transparent -pylo-border transparent; -fx-border-width: 0 0 1 0; }
+.vs-nav-link { -fx-background-color: transparent; -fx-text-fill: -pylo-text; -fx-font-size: 13px; -fx-padding: 6 0; -fx-cursor: hand; }
+.vs-nav-link:hover { -fx-text-fill: -pylo-primary; }
+.vs-footer { -fx-background-color: white; -fx-padding: 22 40; -fx-border-color: -pylo-border transparent transparent transparent; -fx-border-width: 1 0 0 0; }
+
+/* ---------- Héros ---------- */
+.vs-pill { -fx-background-color: -vs-soft; -fx-background-radius: 100; -fx-text-fill: -pylo-primary-dark; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 6 14; -fx-graphic-text-gap: 6; }
+.vs-pill-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 12px; }
+.vs-hero-panel { -fx-background-color: linear-gradient(to bottom right, #B79CF2, -pylo-primary); -fx-background-radius: 32; -fx-effect: dropshadow(gaussian, rgba(126, 89, 202, 0.25), 24, 0, 0, 10); }
+.vs-float { -fx-background-color: white; -fx-background-radius: 14; -fx-padding: 10 14; -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.18), 16, 0, 0, 6); }
+.vs-float-tile { -fx-background-color: -vs-soft; -fx-background-radius: 10; -fx-min-width: 34; -fx-min-height: 34; -fx-pref-width: 34; -fx-pref-height: 34; }
+.vs-float-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 16px; }
+.vs-float-title { -fx-text-fill: -pylo-text; -fx-font-size: 11px; -fx-font-weight: bold; }
+.vs-float-ok { -fx-text-fill: -vs-green; -fx-font-size: 11px; -fx-font-weight: bold; }
+.vs-progress { -fx-pref-height: 6; }
+.vs-progress > .track { -fx-background-color: -vs-soft2; -fx-background-radius: 6; -fx-background-insets: 0; }
+.vs-progress > .bar { -fx-background-color: -pylo-primary; -fx-background-radius: 6; -fx-background-insets: 0; -fx-padding: 3; }
+
+/* ---------- Illustration ---------- */
+.vs-screen { -fx-background-color: #1A1140; -fx-background-radius: 4; }
+.vs-screen-icon { -fx-icon-color: #B79CF2; -fx-icon-size: 24px; }
+.vs-badge { -fx-background-color: white; -fx-background-radius: 100; -fx-min-width: 44; -fx-min-height: 44; -fx-pref-width: 44; -fx-pref-height: 44; -fx-max-width: 44; -fx-max-height: 44; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 10, 0, 0, 4); }
+.vs-badge-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 20px; }
+
+/* ---------- Atouts ---------- */
+.vs-strip { -fx-background-color: white; -fx-background-radius: 16; -fx-border-color: -pylo-border; -fx-border-radius: 16; -fx-padding: 20 24; -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.06), 12, 0, 0, 3); }
+.vs-feat-tile { -fx-background-color: -vs-soft; -fx-background-radius: 12; -fx-min-width: 40; -fx-min-height: 40; -fx-pref-width: 40; -fx-pref-height: 40; }
+.vs-feat-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 18px; }
+
+/* ---------- Parcours ---------- */
+.vs-course { -fx-background-color: white; -fx-background-radius: 16; -fx-border-color: -pylo-border; -fx-border-radius: 16; -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.06), 12, 0, 0, 3); }
+.vs-course:hover { -fx-border-color: -pylo-primary; }
+.vs-banner { -fx-min-height: 130; -fx-pref-height: 130; -fx-padding: 12; -fx-background-radius: 16 16 0 0; }
+.vs-b0 { -fx-background-color: linear-gradient(to bottom right, #5B3FD0, #2B1B5E); }
+.vs-b1 { -fx-background-color: linear-gradient(to bottom right, #7E59CA, #3A2A8C); }
+.vs-b2 { -fx-background-color: linear-gradient(to bottom right, #B79CF2, #7E59CA); }
+.vs-b3 { -fx-background-color: linear-gradient(to bottom right, #3A2A8C, #1A1140); }
+.vs-banner-icon { -fx-icon-color: rgba(255, 255, 255, 0.30); -fx-icon-size: 56px; }
+.vs-tag { -fx-background-color: rgba(255, 255, 255, 0.22); -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 3 10; }
+.vs-snippet { -fx-font-family: "Consolas", "Monospaced"; -fx-text-fill: rgba(255, 255, 255, 0.85); -fx-font-size: 11px; }
+.vs-card-body { -fx-padding: 14 16 16 16; }
+
+/* ---------- Thèmes ---------- */
+.vs-theme { -fx-background-color: white; -fx-background-radius: 14; -fx-border-color: -pylo-border; -fx-border-radius: 14; -fx-padding: 18 10; }
+.vs-theme:hover { -fx-border-color: -pylo-primary; }
+.vs-theme-tile { -fx-background-radius: 12; -fx-min-width: 44; -fx-min-height: 44; -fx-pref-width: 44; -fx-pref-height: 44; -fx-max-width: 44; -fx-max-height: 44; }
+.vs-theme-icon { -fx-icon-size: 20px; }
+.vs-th0 { -fx-background-color: #E6DCF8; } .vs-th0 .vs-theme-icon { -fx-icon-color: #6C5CE7; }
+.vs-th1 { -fx-background-color: #D9E8FB; } .vs-th1 .vs-theme-icon { -fx-icon-color: #3B6FD8; }
+.vs-th2 { -fx-background-color: #FFE9C2; } .vs-th2 .vs-theme-icon { -fx-icon-color: #C27B00; }
+
+/* ---------- Étapes ---------- */
+.vs-step { -fx-background-color: white; -fx-background-radius: 16; -fx-border-color: -pylo-border; -fx-border-radius: 16; -fx-padding: 20 22; }
+.vs-step-tile { -fx-background-color: -pylo-primary; -fx-background-radius: 12; -fx-min-width: 42; -fx-min-height: 42; -fx-pref-width: 42; -fx-pref-height: 42; }
+.vs-step-icon { -fx-icon-color: white; -fx-icon-size: 18px; }
+.vs-step-num { -fx-text-fill: -vs-soft2; -fx-font-size: 34px; -fx-font-weight: bold; }
+
+/* ---------- Appel à l'action ---------- */
+.vs-cta { -fx-background-color: linear-gradient(to right, -pylo-primary-dark, #B79CF2); -fx-background-radius: 20; -fx-padding: 30 40; }
+.vs-cta-title { -fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold; }
+.vs-cta-sub { -fx-text-fill: rgba(255, 255, 255, 0.85); -fx-font-size: 13px; }
+.vs-cta-icon { -fx-icon-color: white; -fx-icon-size: 28px; }
+.vs-cta-stat { -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; }
+
+/* ---------- Connexion / inscription ---------- */
+.vs-auth-card { -fx-background-color: white; -fx-background-radius: 28; -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.18), 30, 0, 0, 12); }
+.vs-auth-left { -fx-background-color: linear-gradient(to bottom, #9B7AE0, -pylo-primary); -fx-background-radius: 28 0 0 28; -fx-padding: 32 32 24 32; }
+.vs-auth-title { -fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold; }
+.vs-auth-sub { -fx-text-fill: rgba(255, 255, 255, 0.85); -fx-font-size: 13px; }
+.vs-auth-right { -fx-background-color: white; -fx-background-radius: 0 28 28 0; -fx-padding: 28 56 28 56; }
+.vs-form-title { -fx-text-fill: -pylo-text; -fx-font-size: 22px; -fx-font-weight: bold; }
+.vs-line-box { -fx-border-color: transparent transparent -pylo-border transparent; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 2 0; }
+.vs-line-box:focused-within { -fx-border-color: transparent transparent -pylo-primary transparent; }
+.vs-field-icon { -fx-icon-color: -pylo-muted; -fx-icon-size: 15px; }
+.vs-input, .text-field.vs-input, .password-field.vs-input { -fx-background-color: transparent; -fx-background-insets: 0; -fx-text-fill: -pylo-text; -fx-prompt-text-fill: #A9A2C2; -fx-font-size: 13px; -fx-padding: 8 0; }
+.vs-input:focused { -fx-background-color: transparent; -fx-effect: null; }
+.vs-eye { -fx-background-color: transparent; -fx-padding: 0 2; -fx-cursor: hand; }
+.vs-eye:hover .vs-field-icon { -fx-icon-color: -pylo-primary; }
+.vs-seg { -fx-background-color: white; -fx-background-radius: 10; -fx-border-color: -pylo-border; -fx-border-radius: 10; -fx-text-fill: -pylo-muted; -fx-font-size: 12px; -fx-font-weight: bold; -fx-padding: 8 14; -fx-graphic-text-gap: 8; -fx-cursor: hand; }
+.vs-seg-icon { -fx-icon-color: -pylo-muted; -fx-icon-size: 14px; }
+.vs-seg:selected { -fx-background-color: -vs-soft; -fx-border-color: -pylo-primary; -fx-text-fill: -pylo-primary-dark; }
+.vs-seg:selected .vs-seg-icon { -fx-icon-color: -pylo-primary; }
+.vs-check { -fx-text-fill: -pylo-muted; -fx-font-size: 11px; }
+.vs-check .box { -fx-background-color: white; -fx-border-color: -pylo-border; -fx-border-radius: 4; -fx-background-radius: 4; }
+.vs-check:selected .box { -fx-background-color: -pylo-primary; -fx-border-color: -pylo-primary; }
+.vs-check:selected .mark { -fx-background-color: white; }
+.vs-msg { -fx-background-color: -vs-red-soft; -fx-text-fill: -vs-red; -fx-background-radius: 10; -fx-padding: 9 12; -fx-font-size: 12px; -fx-font-weight: bold; }
+.vs-or { -fx-text-fill: -pylo-muted; -fx-font-size: 12px; -fx-max-width: infinity; -fx-alignment: center; }
+.vs-social { -fx-background-color: white; -fx-background-radius: 100; -fx-border-color: -pylo-border; -fx-border-radius: 100; -fx-min-width: 40; -fx-min-height: 40; -fx-pref-width: 40; -fx-pref-height: 40; -fx-padding: 0; -fx-cursor: hand; }
+.vs-social:hover { -fx-background-color: -vs-soft; }
+.vs-social-icon { -fx-icon-color: -pylo-primary-dark; -fx-icon-size: 16px; }
+.vs-social-g { -fx-text-fill: #DB4437; -fx-font-size: 16px; -fx-font-weight: bold; }

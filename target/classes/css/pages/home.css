@@ -1,0 +1,577 @@
+/*
+ * PYLO - Page d'accueil visiteur
+ * Page : HomePage (classes vs-*)
+ *
+ * SOMMAIRE
+ *   1. Variables et page
+ *   2. Barre de navigation
+ *   3. Boutons (vs-primary, vs-secondary, vs-white, liens)
+ *   4. Héros (pastille, titres, illustration, cartes flottantes)
+ *   5. Atouts (bandeau de fonctionnalités)
+ *   6. Parcours (cartes de niveaux)
+ *   7. Thèmes
+ *   8. Étapes « Comment ça marche »
+ *   9. Appel à l'action
+ *  10. Pied de page
+ */
+
+/* ==========================================================================
+   1. VARIABLES ET PAGE
+   (définies sur .border-pane pour couvrir la barre du haut ET le contenu défilant)
+   ========================================================================== */
+
+.vs-root,
+.border-pane {
+    -vs-violet: #6C3CE9;
+    -vs-violet-hover: #572BC7;
+    -vs-violet-pressed: #4820AE;
+    -vs-violet-light: #9A6BFF;
+    -vs-ink: #1B0F3B;
+    -vs-ink-2: #24104F;
+    -vs-soft: #F0EBFF;
+    -vs-soft-2: #F7F4FF;
+
+    -vs-yellow: #F5C542;
+    -vs-yellow-soft: #FFF4CC;
+
+    -vs-text: #2A2144;
+    -vs-muted: #6F6785;
+    -vs-border: #E9E4F3;
+    -vs-surface: #FFFFFF;
+
+    -vs-green: #1F9D63;
+    -vs-green-soft: #E4F6EC;
+}
+
+.vs-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.vs-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.vs-scroll > .scroll-bar:vertical {
+    -fx-pref-width: 10;
+    -fx-background-color: transparent;
+}
+
+.vs-scroll > .scroll-bar:vertical > .track {
+    -fx-background-color: transparent;
+}
+
+.vs-scroll > .scroll-bar:vertical > .thumb {
+    -fx-background-color: rgba(108, 60, 233, 0.28);
+    -fx-background-radius: 10;
+    -fx-background-insets: 2;
+}
+
+.vs-scroll > .scroll-bar:vertical > .thumb:hover {
+    -fx-background-color: rgba(108, 60, 233, 0.5);
+}
+
+.vs-scroll > .scroll-bar > .increment-button,
+.vs-scroll > .scroll-bar > .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.vs-scroll > .scroll-bar .increment-arrow,
+.vs-scroll > .scroll-bar .decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: " ";
+}
+
+/* Fond de la page : halo violet très léger en haut, blanc ensuite */
+.vs-home {
+    -fx-background-color: linear-gradient(from 0px 0px to 0px 760px, #F3EEFF, #FFFFFF);
+}
+
+.vs-section {
+    -fx-padding: 40 48 30 48;
+}
+
+/* Titres de section */
+.vs-h2 {
+    -fx-text-fill: -vs-ink;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.vs-muted {
+    -fx-text-fill: -vs-muted;
+    -fx-font-size: 12.5px;
+    -fx-line-spacing: 2;
+}
+
+/* ==========================================================================
+   2. BARRE DE NAVIGATION
+   ========================================================================== */
+
+.vs-nav {
+    -fx-background-color: rgba(255, 255, 255, 0.96);
+    -fx-padding: 14 48;
+    -fx-border-color: transparent transparent -vs-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.06), 14, 0, 0, 3);
+}
+
+.vs-nav-link {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20;
+    -fx-text-fill: -vs-muted;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 14;
+    -fx-cursor: hand;
+}
+
+.vs-nav-link:hover {
+    -fx-background-color: -vs-soft;
+    -fx-text-fill: -vs-violet;
+}
+
+.vs-nav-link:pressed {
+    -fx-background-color: #E4DAFF;
+}
+
+/* ==========================================================================
+   3. BOUTONS
+   ========================================================================== */
+
+.vs-primary,
+.vs-secondary,
+.vs-white {
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 24;
+    -fx-graphic-text-gap: 8;
+    -fx-content-display: left;
+    -fx-cursor: hand;
+}
+
+.vs-primary {
+    -fx-background-color: linear-gradient(to bottom, #7B4DF0, #6C3CE9);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.35), 14, 0, 0, 5);
+}
+
+.vs-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #6B3DE3, #572BC7);
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.5), 18, 0, 0, 7);
+}
+
+.vs-primary:pressed {
+    -fx-background-color: #4820AE;
+    -fx-effect: dropshadow(gaussian, rgba(72, 32, 174, 0.3), 6, 0, 0, 2);
+}
+
+.vs-primary .ikonli-font-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 15px;
+}
+
+.vs-secondary {
+    -fx-background-color: white;
+    -fx-border-color: #D8CDF5;
+    -fx-border-width: 1.3;
+    -fx-text-fill: -vs-ink-2;
+}
+
+.vs-secondary:hover {
+    -fx-background-color: -vs-soft;
+    -fx-border-color: -vs-violet;
+}
+
+.vs-secondary:pressed {
+    -fx-background-color: #E4DAFF;
+}
+
+.vs-secondary .ikonli-font-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 15px;
+}
+
+/* Bouton blanc sur fond sombre (appel à l'action) */
+.vs-white {
+    -fx-background-color: white;
+    -fx-text-fill: -vs-ink-2;
+    -fx-padding: 13 26;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.22), 14, 0, 0, 5);
+}
+
+.vs-white:hover {
+    -fx-background-color: -vs-yellow;
+}
+
+.vs-white .ikonli-font-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 15px;
+}
+
+/* Liens d'action : « Créer un compte → », « Commencer » */
+.vs-link-strong {
+    -fx-background-color: transparent;
+    -fx-text-fill: -vs-violet;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0;
+    -fx-graphic-text-gap: 6;
+    -fx-cursor: hand;
+}
+
+.vs-link-strong:hover {
+    -fx-text-fill: -vs-violet-pressed;
+    -fx-underline: true;
+}
+
+.vs-link-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 13px;
+}
+
+/* ==========================================================================
+   4. HÉROS
+   ========================================================================== */
+
+.vs-pill {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: #DCD0FA;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-text-fill: -vs-violet;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-graphic-text-gap: 7;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.10), 8, 0, 0, 2);
+}
+
+.vs-pill-icon {
+    -fx-icon-color: #E8A800;
+    -fx-icon-size: 13px;
+}
+
+.vs-h1 {
+    -fx-text-fill: -vs-ink;
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+}
+
+.vs-h1-accent {
+    -fx-text-fill: -vs-violet;
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+}
+
+.vs-lead {
+    -fx-text-fill: -vs-muted;
+    -fx-font-size: 16px;
+    -fx-line-spacing: 4;
+}
+
+.vs-perk {
+    -fx-text-fill: -vs-text;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+}
+
+.vs-perk-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 15px;
+}
+
+/* Illustration */
+.vs-hero-panel {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #8F63FF, #6C3CE9 45%, #3A1A94);
+    -fx-background-radius: 32;
+    -fx-effect: dropshadow(gaussian, rgba(72, 32, 174, 0.35), 34, 0, 0, 16);
+}
+
+.vs-float {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: #EFEAFB;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 12 16 12 12;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.22), 22, 0, 0, 9);
+}
+
+.vs-float-tile {
+    -fx-background-color: -vs-soft;
+    -fx-background-radius: 11;
+    -fx-min-width: 38;
+    -fx-min-height: 38;
+    -fx-pref-width: 38;
+    -fx-pref-height: 38;
+    -fx-max-width: 38;
+    -fx-max-height: 38;
+}
+
+.vs-float-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 18px;
+}
+
+.vs-float-title {
+    -fx-text-fill: -vs-ink;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.vs-float-ok {
+    -fx-text-fill: -vs-green;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Barre de progression de la carte « Niveau 1 » */
+.progress-bar.vs-progress {
+    -fx-pref-height: 8;
+    -fx-min-height: 8;
+    -fx-max-height: 8;
+}
+
+.progress-bar.vs-progress > .track {
+    -fx-background-color: #E9E2FB;
+    -fx-background-radius: 8;
+    -fx-background-insets: 0;
+}
+
+.progress-bar.vs-progress > .bar {
+    -fx-background-color: linear-gradient(to right, #6C3CE9, #9A6BFF);
+    -fx-background-radius: 8;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+
+/* ==========================================================================
+   5. ATOUTS (BANDEAU DE FONCTIONNALITÉS)
+   ========================================================================== */
+
+.vs-strip {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: -vs-border;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 22 26;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.07), 22, 0, 0, 8);
+}
+
+.vs-feat-tile {
+    -fx-background-color: linear-gradient(to bottom right, #F4EFFF, #E6DCFF);
+    -fx-background-radius: 13;
+    -fx-min-width: 46;
+    -fx-min-height: 46;
+    -fx-pref-width: 46;
+    -fx-pref-height: 46;
+    -fx-max-width: 46;
+    -fx-max-height: 46;
+}
+
+.vs-feat-icon {
+    -fx-icon-color: -vs-violet;
+    -fx-icon-size: 20px;
+}
+
+.vs-feat-title {
+    -fx-text-fill: -vs-ink;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   6. PARCOURS (CARTES DE NIVEAUX)
+   ========================================================================== */
+
+.vs-course {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: -vs-border;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.07), 16, 0, 0, 6);
+}
+
+.vs-course:hover {
+    -fx-border-color: #CDBDF7;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.20), 26, 0, 0, 12);
+}
+
+.vs-banner {
+    -fx-background-radius: 20 20 0 0;
+    -fx-min-height: 138;
+    -fx-pref-height: 138;
+    -fx-padding: 14;
+}
+
+.vs-b0 { -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #8F63FF, #5B2FD0); }
+.vs-b1 { -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #5B8CF0, #3558C9); }
+.vs-b2 { -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F7B84A, #E4872B); }
+.vs-b3 { -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F0709B, #C93F73); }
+
+.vs-banner-icon {
+    -fx-icon-color: rgba(255, 255, 255, 0.28);
+    -fx-icon-size: 64px;
+}
+
+.vs-tag {
+    -fx-background-color: rgba(255, 255, 255, 0.24);
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 11;
+}
+
+.vs-snippet {
+    -fx-background-color: rgba(20, 10, 50, 0.55);
+    -fx-background-radius: 8;
+    -fx-text-fill: #F5F3FF;
+    -fx-font-family: "Consolas", "Menlo", monospace;
+    -fx-font-size: 11.5px;
+    -fx-padding: 6 11;
+}
+
+.vs-card-body {
+    -fx-padding: 18 20 20 20;
+}
+
+.vs-card-title {
+    -fx-text-fill: -vs-ink;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   7. THÈMES
+   ========================================================================== */
+
+.vs-theme {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-border-color: -vs-border;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-padding: 22 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.05), 12, 0, 0, 4);
+}
+
+.vs-theme:hover {
+    -fx-background-color: #FBF9FF;
+    -fx-border-color: #CDBDF7;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.16), 20, 0, 0, 8);
+}
+
+.vs-theme-tile {
+    -fx-background-radius: 16;
+    -fx-min-width: 56;
+    -fx-min-height: 56;
+    -fx-pref-width: 56;
+    -fx-pref-height: 56;
+    -fx-max-width: 56;
+    -fx-max-height: 56;
+}
+
+.vs-th0 { -fx-background-color: #EFE8FF; }
+.vs-th1 { -fx-background-color: #E6EFFF; }
+.vs-th2 { -fx-background-color: #FFF1D6; }
+
+.vs-theme-icon { -fx-icon-size: 24px; }
+.vs-th0 .vs-theme-icon { -fx-icon-color: #6C3CE9; }
+.vs-th1 .vs-theme-icon { -fx-icon-color: #3B6FD8; }
+.vs-th2 .vs-theme-icon { -fx-icon-color: #C47F10; }
+
+/* ==========================================================================
+   8. ÉTAPES « COMMENT ÇA MARCHE »
+   ========================================================================== */
+
+.vs-step {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: -vs-border;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 24 26 26 26;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.06), 16, 0, 0, 6);
+}
+
+.vs-step:hover {
+    -fx-border-color: #CDBDF7;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.16), 22, 0, 0, 9);
+}
+
+.vs-step-tile {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #8F63FF, #6C3CE9);
+    -fx-background-radius: 14;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-pref-width: 48;
+    -fx-pref-height: 48;
+    -fx-max-width: 48;
+    -fx-max-height: 48;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.35), 10, 0, 0, 4);
+}
+
+.vs-step-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 21px;
+}
+
+.vs-step-num {
+    -fx-text-fill: #DDD2FB;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   9. APPEL À L'ACTION
+   ========================================================================== */
+
+.vs-cta {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1B0F3B, #3A1A94 55%, #6C3CE9);
+    -fx-background-radius: 26;
+    -fx-padding: 44 54;
+    -fx-effect: dropshadow(gaussian, rgba(58, 26, 148, 0.40), 30, 0, 0, 14);
+}
+
+.vs-cta-title {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.vs-cta-sub {
+    -fx-text-fill: #DCD0FA;
+    -fx-font-size: 14.5px;
+}
+
+.vs-cta-icon {
+    -fx-icon-color: -vs-yellow;
+    -fx-icon-size: 28px;
+}
+
+.vs-cta-stat {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   10. PIED DE PAGE
+   ========================================================================== */
+
+.vs-footer {
+    -fx-background-color: white;
+    -fx-padding: 28 56 34 56;
+    -fx-border-color: -vs-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}

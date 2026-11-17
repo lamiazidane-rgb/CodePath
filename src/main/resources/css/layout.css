@@ -1,0 +1,146 @@
+/* ================= SIDEBAR ================= */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, -pylo-sidebar-top, -pylo-sidebar-bottom);
+    -fx-padding: 22 12 16 12;
+}
+
+
+.sidebar-identity { -fx-padding: 4 0 0 8; }
+
+.sidebar-space {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 11px;
+}
+
+.sidebar-item {
+    -fx-padding: 11 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+.sidebar-item:hover { -fx-background-color: -pylo-primary-dark; }
+.sidebar-item:active { -fx-background-color: -pylo-accent;
+-fx-color:-pylo-primary-dark;}
+.sidebar-item:focused { -fx-background-color: rgba(255, 255, 255, 0.14); }
+
+.sidebar-item-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 17px;
+}
+.sidebar-item-text {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.sidebar-badge {
+    -fx-background-color: -pylo-accent;
+    -fx-background-radius: 8;
+    -fx-text-fill: #3B2A00;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 1 7;
+}
+
+/* Carte de série */
+.streak-card {
+    -fx-background-color: #2A1458;
+    -fx-background-radius: 14;
+    -fx-padding: 14;
+}
+.streak-icon { -fx-icon-color: -pylo-accent; -fx-icon-size: 16px; }
+.streak-title { -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; }
+.streak-text { -fx-text-fill: rgba(255, 255, 255, 0.85); -fx-font-size: 10px; }
+
+.streak-bar { -fx-pref-height: 6; }
+.streak-bar > .track {
+    -fx-background-color: #EDE9F6;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+}
+.streak-bar > .bar {
+    -fx-background-color: -pylo-accent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+    -fx-background-color: -pylo-surface;
+    -fx-border-color: transparent transparent -pylo-border transparent;
+    -fx-padding: 0 24 0 16;
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 8;
+}
+.icon-button:hover { -fx-background-color: #F3F0FB; }
+.icon-button .ikonli-font-icon { -fx-icon-color: -pylo-text; -fx-icon-size: 19px; }
+
+.search-box {
+    -fx-background-color: #F3F0FB;
+    -fx-background-radius: 15;
+    -fx-padding: 9 16;
+    -fx-max-height:25;
+}
+.search-icon { -fx-icon-color: -pylo-muted; -fx-icon-size: 15px; }
+.search-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: -pylo-text;
+    -fx-prompt-text-fill: #8B84A6;
+    -fx-font-size: 12px;
+}
+.search-shortcut { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }
+
+.date-chip {
+
+    -fx-background-radius: 14;
+    -fx-max-height:25;
+    -fx-padding: 6 14;
+}
+.date-dot { -fx-fill: -pylo-accent; }
+.date-text { -fx-text-fill: -pylo-text; -fx-font-size: 12px; }
+
+.bell-dot { -fx-fill: -pylo-accent; -fx-stroke: white; -fx-stroke-width: 1.5; }
+
+.user-box { -fx-padding: 4 4 4 12; -fx-cursor: hand; }
+.avatar {
+    -fx-background-color: #EDE7FB;
+    -fx-background-radius: 50;
+    -fx-min-width: 38;
+    -fx-min-height: 38;
+    -fx-alignment: center;
+    -fx-text-fill: -pylo-primary-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.user-name { -fx-text-fill: -pylo-text; -fx-font-size: 12px; -fx-font-weight: bold; }
+.user-role { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }
+.chevron { -fx-icon-color: -pylo-muted; -fx-icon-size: 15px; }
+
+/* ================= CONTENU ================= */
+.main-column { -fx-background-color: -pylo-bg; }
+
+.content-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+.content-scroll > .viewport { -fx-background-color: transparent; }
+.content-host { -fx-background-color: transparent; }
+
+/* ================= FOOTER ================= */
+.footer { -fx-padding: 0 32; }
+.footer-text { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }

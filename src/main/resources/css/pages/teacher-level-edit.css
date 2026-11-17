@@ -1,0 +1,359 @@
+/*
+ * PYLO - Formulaire de niveau (création / modification)
+ * Page : NiveauFormView
+ * Chargé par la vue : /css/pages/teacher-level-edit.css
+ *
+ * Ce fichier est autonome : il définit ses propres variables (-le-*) et ne dépend
+ * plus de theme.css. (L'ancienne version commençait par des caractères parasites
+ * « zaq » avant le premier commentaire, ce qui pouvait casser la première règle.)
+ *
+ * SOMMAIRE
+ *   1. Variables et page
+ *   2. En-tête (fil d'Ariane, titre)
+ *   3. Cartes
+ *   4. Objectifs pédagogiques
+ *   5. Contenu associé
+ *   6. Panneau latéral : publication, prérequis, cases à cocher
+ *   7. Alerte
+ *   8. Barre d'actions
+ */
+
+/* ==========================================================================
+   1. VARIABLES ET PAGE
+   ========================================================================== */
+
+.le-root {
+    -le-primary: #6C3CE9;
+    -le-primary-hover: #572BC7;
+    -le-primary-dark: #24104F;
+    -le-soft: #F0EBFF;
+    -le-soft-strong: #E4DAFF;
+    -le-surface: #FFFFFF;
+    -le-text: #30264B;
+    -le-muted: #817A91;
+    -le-border: #E8E3F1;
+    -le-border-soft: #EEEAF4;
+
+    -le-green: #278252;
+    -le-green-soft: #E6F5EC;
+    -le-blue: #3B6FD8;
+    -le-orange: #B7791F;
+    -le-rose: #D95775;
+
+    -le-warn-bg: #FFF7D6;
+    -le-warn-border: #F0E0A0;
+    -le-warn-text: #8A6A12;
+}
+
+/*
+ * La page enseignant a un padding de 28 32 36 32 ; la barre d'actions déborde
+ * avec des marges négatives (-28 / -30) : on garde donc le padding d'origine ici.
+ */
+.page.t-page.le-root {
+    -fx-padding: 24 28 30 28;
+}
+
+/* ==========================================================================
+   2. EN-TÊTE
+   ========================================================================== */
+
+.le-breadcrumb {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 11px;
+}
+
+.le-title {
+    -fx-text-fill: -le-primary-dark;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.le-subtitle {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 12.5px;
+}
+
+/* ==========================================================================
+   3. CARTES
+   ========================================================================== */
+
+.le-card {
+    -fx-background-color: -le-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: -le-border;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 20 22;
+    -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.06), 14, 0, 0, 3);
+}
+
+.le-card:hover {
+    -fx-border-color: #D9CDF7;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.12), 18, 0, 0, 5);
+}
+
+.le-card-icon {
+    -fx-icon-color: -le-primary;
+    -fx-icon-size: 19px;
+}
+
+.le-card-title {
+    -fx-text-fill: -le-text;
+    -fx-font-size: 14.5px;
+    -fx-font-weight: bold;
+}
+
+.le-card-sub {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 11px;
+}
+
+.le-hint {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 12px;
+    -fx-background-color: #FAF8FF;
+    -fx-background-radius: 10;
+    -fx-border-color: #E5DEF6;
+    -fx-border-style: segments(5, 4);
+    -fx-border-radius: 10;
+    -fx-padding: 14 16;
+}
+
+/* ==========================================================================
+   4. OBJECTIFS PÉDAGOGIQUES
+   ========================================================================== */
+
+.le-objective-row {
+    -fx-background-color: #FAF8FF;
+    -fx-background-radius: 10;
+    -fx-border-color: -le-border-soft;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 6 8 6 10;
+}
+
+.le-objective-row:hover {
+    -fx-background-color: #F6F2FF;
+    -fx-border-color: #CFC2F5;
+}
+
+.le-drag-icon {
+    -fx-icon-color: #B8AFCB;
+    -fx-icon-size: 15px;
+}
+
+.le-objective-row:hover .le-drag-icon {
+    -fx-icon-color: -le-primary;
+}
+
+/* Le champ du milieu se fond dans la ligne tant qu'il n'est pas actif */
+.le-objective-row .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: none;
+}
+
+.le-objective-row .text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: -le-primary;
+}
+
+.le-add-button {
+    -fx-background-color: -le-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -le-primary;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.2;
+    -fx-text-fill: -le-primary;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 15;
+    -fx-cursor: hand;
+}
+
+.le-add-button:hover {
+    -fx-background-color: -le-primary;
+    -fx-text-fill: white;
+}
+
+.le-add-button:pressed {
+    -fx-background-color: -le-primary-hover;
+    -fx-text-fill: white;
+}
+
+/* ==========================================================================
+   5. CONTENU ASSOCIÉ
+   ========================================================================== */
+
+.le-content-row {
+    -fx-padding: 12 8;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent transparent -le-border-soft transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.le-content-row:hover {
+    -fx-background-color: #FAF8FF;
+}
+
+.le-thumb {
+    -fx-background-radius: 10;
+    -fx-min-width: 48;
+    -fx-min-height: 42;
+    -fx-pref-width: 48;
+    -fx-pref-height: 42;
+    -fx-max-width: 48;
+    -fx-max-height: 42;
+    -fx-alignment: center;
+}
+
+.le-thumb.tone-violet { -fx-background-color: linear-gradient(to bottom right, #EEE6FC, #DCCFF7); }
+.le-thumb.tone-blue   { -fx-background-color: linear-gradient(to bottom right, #E6F0FD, #D2E3FA); }
+.le-thumb.tone-orange { -fx-background-color: linear-gradient(to bottom right, #FFF1D6, #FFE2AE); }
+.le-thumb.tone-rose   { -fx-background-color: linear-gradient(to bottom right, #FDE7EC, #F9CFD9); }
+
+.le-thumb-icon { -fx-icon-size: 18px; }
+.le-thumb.tone-violet .le-thumb-icon { -fx-icon-color: -le-primary; }
+.le-thumb.tone-blue .le-thumb-icon   { -fx-icon-color: -le-blue; }
+.le-thumb.tone-orange .le-thumb-icon { -fx-icon-color: -le-orange; }
+.le-thumb.tone-rose .le-thumb-icon   { -fx-icon-color: -le-rose; }
+
+.le-row-title {
+    -fx-text-fill: -le-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.le-row-sub {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 11px;
+}
+
+.le-chip {
+    -fx-background-radius: 20;
+    -fx-padding: 4 11;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.le-chip-ok {
+    -fx-background-color: -le-green-soft;
+    -fx-text-fill: -le-green;
+}
+
+.le-manage-link {
+    -fx-text-fill: -le-primary;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 8 0 0 0;
+    -fx-cursor: hand;
+}
+
+.le-manage-link:hover {
+    -fx-text-fill: -le-primary-hover;
+    -fx-underline: true;
+}
+
+.le-manage-link:visited {
+    -fx-text-fill: -le-primary;
+}
+
+/* ==========================================================================
+   6. PANNEAU LATÉRAL : PUBLICATION, PRÉREQUIS, CASES À COCHER
+   ========================================================================== */
+
+.le-badge {
+    -fx-background-radius: 100;
+    -fx-padding: 6 14;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-max-width: Infinity;
+    -fx-alignment: center;
+}
+
+.le-badge-ok {
+    -fx-background-color: -le-green-soft;
+    -fx-text-fill: -le-green;
+}
+
+.le-badge-draft {
+    -fx-background-color: #FFF4D6;
+    -fx-text-fill: #986515;
+}
+
+.check-box.le-check {
+    -fx-text-fill: -le-text;
+    -fx-font-size: 12px;
+    -fx-label-padding: 0 0 0 4;
+    -fx-cursor: hand;
+}
+
+.check-box.le-check > .box {
+    -fx-background-color: white;
+    -fx-border-color: #C7B8F2;
+    -fx-border-width: 1.3;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 3;
+}
+
+.check-box.le-check:hover > .box {
+    -fx-border-color: -le-primary;
+    -fx-background-color: -le-soft;
+}
+
+.check-box.le-check:focused > .box {
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.30), 5, 0, 0, 0);
+}
+
+.check-box.le-check:selected > .box {
+    -fx-background-color: -le-primary;
+    -fx-border-color: -le-primary;
+}
+
+.check-box.le-check:selected > .box > .mark {
+    -fx-background-color: white;
+}
+
+/* ==========================================================================
+   7. ALERTE
+   ========================================================================== */
+
+.le-warn {
+    -fx-background-color: -le-warn-bg;
+    -fx-background-radius: 12;
+    -fx-border-color: -le-warn-border -le-warn-border -le-warn-border #F5C542;
+    -fx-border-width: 1 1 1 4;
+    -fx-border-radius: 12;
+    -fx-padding: 14 16;
+}
+
+.le-warn-icon {
+    -fx-icon-color: #C9A227;
+    -fx-icon-size: 17px;
+}
+
+.le-warn-text {
+    -fx-text-fill: -le-warn-text;
+    -fx-font-size: 11.5px;
+    -fx-line-spacing: 2;
+}
+
+/* ==========================================================================
+   8. BARRE D'ACTIONS
+   ========================================================================== */
+
+.le-actionbar {
+    -fx-background-color: -le-surface;
+    -fx-border-color: -le-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 14 28;
+    -fx-effect: dropshadow(gaussian, rgba(45, 33, 73, 0.08), 12, 0, 0, -3);
+}
+
+.le-action-info {
+    -fx-text-fill: -le-muted;
+    -fx-font-size: 11.5px;
+}

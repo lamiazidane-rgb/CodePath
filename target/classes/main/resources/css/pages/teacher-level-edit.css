@@ -1,0 +1,230 @@
+zaq/* Formulaire niveau — maquette + palette theme.css / teacher.css */
+
+.le-root {
+    -le-green: #278252;
+    -le-green-soft: #E6F5EC;
+    -le-soft: #F0EBFF;
+    -le-soft-strong: #E4DAFF;
+    -le-warn-bg: #FFF7D6;
+    -le-warn-text: #8A6A12;
+    -le-violet: #6C3CE9;
+    -le-blue: #3B6FD8;
+    -le-orange: #B7791F;
+    -le-rose: #D95775;
+}
+
+.le-breadcrumb {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 11px;
+}
+
+.le-title {
+    -fx-text-fill: -pylo-primary-dark;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.le-subtitle {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 12px;
+}
+
+/* Cartes */
+.le-card {
+    -fx-background-color: -pylo-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: -pylo-border;
+    -fx-border-radius: 14;
+    -fx-padding: 18 20;
+    -fx-effect: dropshadow(gaussian, rgba(79, 40, 135, 0.06), 12, 0, 0, 3);
+}
+
+.le-card-icon {
+    -fx-icon-color: -pylo-primary;
+    -fx-icon-size: 18px;
+}
+
+.le-card-title {
+    -fx-text-fill: -pylo-text;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.le-card-sub {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 11px;
+}
+
+.le-hint {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 12px;
+}
+
+.le-drag-icon {
+    -fx-icon-color: -pylo-muted;
+    -fx-icon-size: 14px;
+}
+
+.le-objective-row {
+    -fx-padding: 2 0;
+}
+
+.le-add-button {
+    -fx-background-color: -pylo-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -pylo-primary;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.2;
+    -fx-text-fill: -pylo-primary;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.le-add-button:hover {
+    -fx-background-color: -le-soft;
+}
+
+/* Contenu associé */
+.le-content-row {
+    -fx-padding: 12 4;
+    -fx-border-color: transparent transparent -pylo-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.le-content-row:hover {
+    -fx-background-color: #FAF8FF;
+}
+
+.le-thumb {
+    -fx-background-radius: 8;
+    -fx-min-width: 48;
+    -fx-min-height: 40;
+    -fx-pref-width: 48;
+    -fx-pref-height: 40;
+    -fx-max-width: 48;
+    -fx-max-height: 40;
+    -fx-alignment: center;
+}
+
+.le-thumb.tone-violet { -fx-background-color: #E6DCF8; }
+.le-thumb.tone-blue { -fx-background-color: #D9E8FB; }
+.le-thumb.tone-orange { -fx-background-color: #FFE9C2; }
+.le-thumb.tone-rose { -fx-background-color: #FAD7DF; }
+
+.le-thumb-icon { -fx-icon-size: 18px; }
+.le-thumb.tone-violet .le-thumb-icon { -fx-icon-color: -le-violet; }
+.le-thumb.tone-blue .le-thumb-icon { -fx-icon-color: -le-blue; }
+.le-thumb.tone-orange .le-thumb-icon { -fx-icon-color: -le-orange; }
+.le-thumb.tone-rose .le-thumb-icon { -fx-icon-color: -le-rose; }
+
+.le-row-title {
+    -fx-text-fill: -pylo-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.le-row-sub {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 11px;
+}
+
+.le-chip {
+    -fx-background-radius: 8;
+    -fx-padding: 3 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.le-chip-ok {
+    -fx-background-color: -le-green-soft;
+    -fx-text-fill: -le-green;
+}
+
+.le-manage-link {
+    -fx-text-fill: -pylo-primary-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-underline: false;
+    -fx-padding: 8 0 0 0;
+}
+
+.le-manage-link:hover {
+    -fx-underline: true;
+}
+
+/* Publication */
+.le-badge {
+    -fx-background-radius: 100;
+    -fx-padding: 4 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-max-width: Infinity;
+    -fx-alignment: center;
+}
+
+.le-badge-ok {
+    -fx-background-color: -le-green-soft;
+    -fx-text-fill: -le-green;
+}
+
+.le-badge-draft {
+    -fx-background-color: #FFF4D6;
+    -fx-text-fill: #B7791F;
+}
+
+.check-box.le-check {
+    -fx-text-fill: -pylo-text;
+    -fx-font-size: 12px;
+}
+
+.check-box.le-check > .box {
+    -fx-background-color: white;
+    -fx-border-color: #C7B8F2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 2;
+}
+
+.check-box.le-check:selected > .box {
+    -fx-background-color: -pylo-primary;
+    -fx-border-color: -pylo-primary;
+}
+
+.check-box.le-check:selected > .box > .mark {
+    -fx-background-color: white;
+}
+
+/* Alerte */
+.le-warn {
+    -fx-background-color: -le-warn-bg;
+    -fx-background-radius: 12;
+    -fx-padding: 14 14;
+    -fx-border-color: #F0E0A0;
+    -fx-border-radius: 12;
+}
+
+.le-warn-icon {
+    -fx-icon-color: #C9A227;
+    -fx-icon-size: 16px;
+}
+
+.le-warn-text {
+    -fx-text-fill: -le-warn-text;
+    -fx-font-size: 11px;
+}
+
+/* Barre d'actions */
+.le-actionbar {
+    -fx-background-color: -pylo-surface;
+    -fx-border-color: -pylo-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 14 28;
+    -fx-effect: dropshadow(gaussian, rgba(45, 33, 73, 0.06), 10, 0, 0, -2);
+}
+
+.le-action-info {
+    -fx-text-fill: -pylo-muted;
+    -fx-font-size: 11px;
+}

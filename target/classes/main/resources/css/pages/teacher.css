@@ -1,0 +1,419 @@
+/*
+ * PYLO - Styles de l'espace enseignant
+ * Palette : violet professionnel + accents jaune
+ * Fichier à utiliser avec les classes t-* déjà présentes dans le projet.
+ */
+
+.root {
+    -t-violet: #6C3CE9;
+    -t-violet-dark: #24104F;
+    -t-violet-soft: #F0EBFF;
+
+    -t-yellow: #F5C542;
+    -t-yellow-soft: #FFF7D6;
+
+    -t-blue: #3B6FD8;
+    -t-blue-soft: #EAF0FF;
+    -t-orange: #B7791F;
+    -t-orange-soft: #FFF4D6;
+    -t-rose: #D95775;
+    -t-rose-soft: #FCEBF0;
+    -t-green: #278252;
+    -t-green-soft: #E6F5EC;
+    -t-danger: #C83D4D;
+    -t-danger-soft: #FCEBED;
+    -t-row-hover: #F8F6FF;
+}
+
+/* Page et typographie */
+.page.t-page {
+    -fx-padding: 24 28 30 28;
+    -fx-background-color: #F7F7FB;
+}
+
+.t-label {
+    -fx-text-fill: #30264B;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.t-hint {
+    -fx-text-fill: #817A91;
+    -fx-font-size: 11px;
+}
+
+.t-error {
+    -fx-text-fill: -t-danger;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.t-success {
+    -fx-text-fill: -t-green;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Boutons */
+.t-btn-primary,
+.t-btn-secondary {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+    -fx-graphic-text-gap: 8;
+    -fx-cursor: hand;
+}
+
+.t-btn-primary {
+    -fx-background-color: #6C3CE9;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(64, 36, 120, 0.16), 8, 0, 0, 2);
+}
+
+.t-btn-primary:hover {
+    -fx-background-color: #572BC7;
+}
+
+.t-btn-primary:pressed {
+    -fx-background-color: #4820AE;
+}
+
+.t-btn-primary .ikonli-font-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 14px;
+}
+
+.t-btn-secondary {
+    -fx-background-color: white;
+    -fx-border-color: #E5E0EF;
+    -fx-text-fill: #49366F;
+}
+
+.t-btn-secondary:hover {
+    -fx-background-color: #F4F0FF;
+    -fx-border-color: #CFC2F5;
+}
+
+.t-btn-secondary .ikonli-font-icon {
+    -fx-icon-color: #6C3CE9;
+    -fx-icon-size: 14px;
+}
+
+/* Boutons icônes */
+.t-icon-btn,
+.t-icon-danger {
+    -fx-background-color: transparent;
+    -fx-background-radius: 7;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-pref-width: 32;
+    -fx-pref-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.t-icon-btn .ikonli-font-icon {
+    -fx-icon-color: #6C3CE9;
+    -fx-icon-size: 15px;
+}
+
+.t-icon-btn:hover {
+    -fx-background-color: #F0EBFF;
+}
+
+.t-icon-danger .ikonli-font-icon {
+    -fx-icon-color: #C83D4D;
+    -fx-icon-size: 15px;
+}
+
+.t-icon-danger:hover {
+    -fx-background-color: #FCEBED;
+}
+
+/* Champs de saisie */
+.t-input,
+.t-spinner > .text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-color: #E3DEEC;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #30264B;
+    -fx-prompt-text-fill: #A59DB5;
+    -fx-font-size: 12px;
+    -fx-padding: 10 12;
+}
+
+.t-input:hover,
+.t-spinner > .text-field:hover {
+    -fx-border-color: #C7B8F2;
+}
+
+.t-input:focused,
+.t-spinner > .text-field:focused {
+    -fx-border-color: #6C3CE9;
+    -fx-border-width: 1.3;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.12), 6, 0, 0, 1);
+}
+
+.t-input:disabled {
+    -fx-opacity: 0.58;
+}
+
+.text-area.t-input {
+    -fx-padding: 0;
+}
+
+.text-area.t-input .content {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 9 11;
+}
+
+.text-area.t-input > .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+}
+
+.text-area.t-input:focused .content {
+    -fx-background-color: white;
+}
+
+.combo-box.t-input,
+.date-picker.t-input {
+    -fx-padding: 3 5;
+    -fx-cursor: hand;
+}
+
+.combo-box.t-input > .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #30264B;
+    -fx-padding: 5 8;
+}
+
+.date-picker.t-input > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 5 8;
+    -fx-effect: none;
+}
+
+.t-spinner {
+    -fx-background-color: transparent;
+}
+
+.t-spinner > .text-field {
+    -fx-font-weight: bold;
+}
+
+/* Pastilles de statut */
+.t-chip {
+    -fx-background-radius: 6;
+    -fx-padding: 4 9;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.t-chip-ok {
+    -fx-background-color: #E6F5EC;
+    -fx-text-fill: #278252;
+}
+
+.t-chip-warn {
+    -fx-background-color: #FFF4D6;
+    -fx-text-fill: #986515;
+}
+
+.t-chip-danger {
+    -fx-background-color: #FCEBED;
+    -fx-text-fill: #C83D4D;
+}
+
+.t-chip-neutral {
+    -fx-background-color: #F0EBFF;
+    -fx-text-fill: #5730B5;
+}
+
+/* Tableau */
+.t-table-head {
+    -fx-background-color: #F0EBFF;
+    -fx-background-radius: 7;
+    -fx-padding: 11 14;
+}
+
+.t-th {
+    -fx-text-fill: #49366F;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.t-row {
+    -fx-padding: 12 14;
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #EEEAF4 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.t-row:hover {
+    -fx-background-color: -t-row-hover;
+}
+
+.t-cell {
+    -fx-text-fill: #514A60;
+    -fx-font-size: 12px;
+}
+
+.t-cell-strong {
+    -fx-text-fill: #30264B;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.t-cell-sub {
+    -fx-text-fill: #898296;
+    -fx-font-size: 11px;
+}
+
+/* État vide */
+.t-empty {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #E5E0EF;
+    -fx-border-style: segments(6, 5);
+    -fx-border-radius: 10;
+    -fx-padding: 30;
+}
+
+.t-empty-icon {
+    -fx-icon-color: #B8A8E8;
+    -fx-icon-size: 34px;
+}
+
+/* Cartes statistiques */
+.card.t-stat {
+    -fx-padding: 17 19;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #ECE8F2;
+    -fx-border-radius: 10;
+}
+
+.t-stat-box {
+    -fx-background-radius: 9;
+    -fx-min-width: 42;
+    -fx-min-height: 42;
+    -fx-pref-width: 42;
+    -fx-pref-height: 42;
+    -fx-max-width: 42;
+    -fx-max-height: 42;
+}
+
+.t-stat-box.t-tone-violet { -fx-background-color: #F0EBFF; }
+.t-stat-box.t-tone-blue   { -fx-background-color: #EAF0FF; }
+.t-stat-box.t-tone-orange { -fx-background-color: #FFF4D6; }
+.t-stat-box.t-tone-rose   { -fx-background-color: #FCEBF0; }
+
+.t-stat-icon { -fx-icon-size: 18px; }
+.t-stat-box.t-tone-violet .t-stat-icon { -fx-icon-color: #6C3CE9; }
+.t-stat-box.t-tone-blue .t-stat-icon   { -fx-icon-color: #3B6FD8; }
+.t-stat-box.t-tone-orange .t-stat-icon { -fx-icon-color: #B7791F; }
+.t-stat-box.t-tone-rose .t-stat-icon   { -fx-icon-color: #D95775; }
+
+.t-stat-value {
+    -fx-text-fill: #30264B;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.t-stat-label {
+    -fx-text-fill: #817A91;
+    -fx-font-size: 11px;
+}
+
+/* Liens, listes et avatars */
+.t-link {
+    -fx-text-fill: #6C3CE9;
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.t-link:hover {
+    -fx-text-fill: #4820AE;
+    -fx-underline: true;
+}
+
+.t-list-row {
+    -fx-padding: 10 0;
+    -fx-border-color: transparent transparent #EEEAF4 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.t-avatar {
+    -fx-background-color: #F0EBFF;
+    -fx-background-radius: 100;
+    -fx-text-fill: #6C3CE9;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-pref-width: 36;
+    -fx-pref-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+/* Dialogues */
+.dialog-pane.t-dialog {
+    -fx-background-color: #FFFFFF;
+    -fx-font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+.t-dialog .header-panel {
+    -fx-background-color: #F0EBFF;
+    -fx-padding: 16 20;
+}
+
+.t-dialog .header-panel .label {
+    -fx-text-fill: #24104F;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.t-dialog .content.label {
+    -fx-text-fill: #514A60;
+    -fx-font-size: 12px;
+}
+
+.t-dialog .button-bar .button {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #E5E0EF;
+    -fx-border-radius: 8;
+    -fx-text-fill: #514A60;
+    -fx-font-weight: bold;
+    -fx-padding: 8 17;
+    -fx-cursor: hand;
+}
+
+.t-dialog .button-bar .button:default {
+    -fx-background-color: #6C3CE9;
+    -fx-border-color: #6C3CE9;
+    -fx-text-fill: white;
+}
+
+/* Accent jaune : à appliquer aux petits éléments de mise en évidence */
+.t-accent-yellow {
+    -fx-background-color: #FFF7D6;
+    -fx-background-radius: 7;
+    -fx-text-fill: #765600;
+}
+
+.t-accent-yellow .ikonli-font-icon {
+    -fx-icon-color: #B88900;
+}

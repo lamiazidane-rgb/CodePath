@@ -1,0 +1,752 @@
+/*
+ * PYLO - Styles de l'espace enseignant
+ * Palette : violet professionnel + accents jaune
+ *
+ * Pages couvertes (module « Gestion des cours ») :
+ *   - CoursView               : statistiques, filtres, tableau des cours
+ *   - CoursFormView           : formulaire cours (étape 1) + formulaire chapitre
+ *   - ChapitreManagementView  : cartes de chapitres, lignes de leçons, éditeur de leçon, dialogues
+ *   - CoursDetailView         : consultation, structure, publication, prévisualisation de leçon
+ *
+ * SOMMAIRE
+ *   1. Variables (palette)
+ *   2. Page, typographie et messages
+ *   3. Boutons (principal, secondaire, icônes, liens)
+ *   4. Champs de saisie (texte, zone de texte, combo, date, spinner)
+ *   5. Pastilles de statut
+ *   6. Tableau de données
+ *   7. Cartes statistiques
+ *   8. Listes, lignes de leçons, avatars (numéro de chapitre)
+ *   9. États vides
+ *  10. Dialogues (exemple de code, ressource, confirmation)
+ *  11. Accents et blocs d'information
+ *  12. Composants globaux (barres de défilement, infobulles, listes déroulantes)
+ */
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+
+.root {
+    /* Violet : couleur de marque */
+    -t-violet: #6C3CE9;
+    -t-violet-hover: #572BC7;
+    -t-violet-pressed: #4820AE;
+    -t-violet-dark: #24104F;
+    -t-violet-text: #5730B5;
+    -t-violet-soft: #F0EBFF;
+    -t-violet-border: #CFC2F5;
+
+    /* Jaune : accent */
+    -t-yellow: #F5C542;
+    -t-yellow-soft: #FFF7D6;
+    -t-yellow-text: #765600;
+
+    /* Tons des cartes statistiques */
+    -t-blue: #3B6FD8;
+    -t-blue-soft: #EAF0FF;
+    -t-orange: #B7791F;
+    -t-orange-soft: #FFF4D6;
+    -t-rose: #D95775;
+    -t-rose-soft: #FCEBF0;
+
+    /* États */
+    -t-green: #278252;
+    -t-green-soft: #E6F5EC;
+    -t-danger: #C83D4D;
+    -t-danger-soft: #FCEBED;
+
+    /* Neutres */
+    -t-bg: #F7F7FB;
+    -t-surface: #FFFFFF;
+    -t-border: #E5E0EF;
+    -t-border-soft: #EEEAF4;
+    -t-border-input: #E3DEEC;
+    -t-text: #30264B;
+    -t-text-body: #514A60;
+    -t-text-muted: #817A91;
+    -t-text-placeholder: #A59DB5;
+    -t-row-hover: #F8F6FF;
+    -t-code-bg: #1E1B2E;
+}
+
+/* ==========================================================================
+   2. PAGE, TYPOGRAPHIE ET MESSAGES
+   ========================================================================== */
+
+.page.t-page {
+    -fx-padding: 28 32 36 32;
+    -fx-background-color: -t-bg;
+}
+
+.t-page .scroll-pane,
+.t-page .scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Étiquette de champ et titre de section */
+.t-label {
+    -fx-text-fill: -t-text;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+}
+
+/* Texte d'aide, libellés secondaires */
+.t-hint {
+    -fx-text-fill: -t-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* Messages d'erreur / de succès (bandeau sous l'en-tête) */
+.t-error,
+.t-success {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 14;
+}
+
+.t-error {
+    -fx-text-fill: -t-danger;
+    -fx-background-color: -t-danger-soft;
+    -fx-border-color: #F3C7CD;
+}
+
+.t-success {
+    -fx-text-fill: -t-green;
+    -fx-background-color: -t-green-soft;
+    -fx-border-color: #BFE3CE;
+}
+
+/* Cartes génériques (TeacherUi.card) */
+.card {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: #ECE8F2;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.05), 12, 0, 0, 2);
+}
+
+/* ==========================================================================
+   3. BOUTONS
+   ========================================================================== */
+
+.t-btn-primary,
+.t-btn-secondary {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+    -fx-graphic-text-gap: 8;
+    -fx-cursor: hand;
+}
+
+/* Principal : Ajouter, Enregistrer, Publier... */
+.t-btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #7547EE, -t-violet);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.28), 10, 0, 0, 3);
+}
+
+.t-btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #6A3AE0, -t-violet-hover);
+}
+
+.t-btn-primary:pressed {
+    -fx-background-color: -t-violet-pressed;
+    -fx-effect: dropshadow(gaussian, rgba(72, 32, 174, 0.22), 4, 0, 0, 1);
+}
+
+.t-btn-primary:focused {
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.45), 8, 0.2, 0, 0);
+}
+
+.t-btn-primary:disabled {
+    -fx-background-color: #CDBFF5;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+    -fx-effect: none;
+    -fx-cursor: default;
+}
+
+.t-btn-primary .ikonli-font-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 14px;
+}
+
+/* Secondaire : Retour, Prévisualiser, outils de mise en forme... */
+.t-btn-secondary {
+    -fx-background-color: -t-surface;
+    -fx-border-color: -t-border;
+    -fx-border-width: 1;
+    -fx-text-fill: #49366F;
+}
+
+.t-btn-secondary:hover {
+    -fx-background-color: #F4F0FF;
+    -fx-border-color: -t-violet-border;
+}
+
+.t-btn-secondary:pressed {
+    -fx-background-color: #E9E1FF;
+}
+
+.t-btn-secondary:focused {
+    -fx-border-color: -t-violet;
+}
+
+.t-btn-secondary:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+.t-btn-secondary .ikonli-font-icon {
+    -fx-icon-color: -t-violet;
+    -fx-icon-size: 14px;
+}
+
+/* Boutons icônes : consulter, modifier, monter/descendre, supprimer */
+.t-icon-btn,
+.t-icon-danger {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-pref-width: 32;
+    -fx-pref-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.t-icon-btn .ikonli-font-icon {
+    -fx-icon-color: #7C5BD9;
+    -fx-icon-size: 15px;
+}
+
+.t-icon-btn:hover {
+    -fx-background-color: -t-violet-soft;
+}
+
+.t-icon-btn:hover .ikonli-font-icon {
+    -fx-icon-color: -t-violet;
+}
+
+.t-icon-btn:pressed {
+    -fx-background-color: #E4DAFF;
+}
+
+/* Flèches désactivées (premier / dernier élément) : volontairement discrètes */
+.t-icon-btn:disabled,
+.t-icon-danger:disabled {
+    -fx-opacity: 1;
+    -fx-cursor: default;
+}
+
+.t-icon-btn:disabled .ikonli-font-icon,
+.t-icon-danger:disabled .ikonli-font-icon {
+    -fx-icon-color: #D5CFE2;
+}
+
+.t-icon-btn:disabled:hover,
+.t-icon-danger:disabled:hover {
+    -fx-background-color: transparent;
+}
+
+.t-icon-danger .ikonli-font-icon {
+    -fx-icon-color: #D9707D;
+    -fx-icon-size: 15px;
+}
+
+.t-icon-danger:hover {
+    -fx-background-color: -t-danger-soft;
+}
+
+.t-icon-danger:hover .ikonli-font-icon {
+    -fx-icon-color: -t-danger;
+}
+
+.t-icon-danger:pressed {
+    -fx-background-color: #F8D6DB;
+}
+
+/* Liens : Publier / Dépublier, Prévisualiser */
+.t-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: -t-violet;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 6;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.t-link:hover {
+    -fx-text-fill: -t-violet-pressed;
+    -fx-underline: true;
+}
+
+.t-link:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ==========================================================================
+   4. CHAMPS DE SAISIE
+   ========================================================================== */
+
+.t-input,
+.t-spinner > .text-field {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 8;
+    -fx-border-color: -t-border-input;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: -t-text;
+    -fx-prompt-text-fill: -t-text-placeholder;
+    -fx-highlight-fill: #D9CCFB;
+    -fx-highlight-text-fill: -t-violet-dark;
+    -fx-font-size: 12px;
+    -fx-padding: 10 12;
+}
+
+.t-input:hover,
+.t-spinner > .text-field:hover {
+    -fx-border-color: #C7B8F2;
+}
+
+.t-input:focused,
+.t-spinner > .text-field:focused {
+    -fx-border-color: -t-violet;
+    -fx-border-width: 1.4;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.16), 7, 0, 0, 1);
+}
+
+.t-input:disabled {
+    -fx-opacity: 0.58;
+}
+
+/* Zones de texte : description, objectifs, contenu de leçon, code source */
+.text-area.t-input {
+    -fx-padding: 0;
+}
+
+.text-area.t-input .content {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+}
+
+.text-area.t-input > .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+}
+
+.text-area.t-input:focused .content {
+    -fx-background-color: -t-surface;
+}
+
+/* Zones de texte en lecture seule (code des exemples, résultat attendu) */
+.text-area:readonly {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -t-border-input;
+    -fx-highlight-fill: #6C3CE9;
+    -fx-highlight-text-fill: white;
+}
+
+.text-area:readonly .content {
+    -fx-background-radius: 8;
+    -fx-padding: 12 14;
+}
+
+/* Liste déroulante (niveau, statut, tri, langage, type de ressource) et sélecteur de date */
+.combo-box.t-input,
+.date-picker.t-input {
+    -fx-padding: 3 5;
+    -fx-cursor: hand;
+}
+
+.combo-box.t-input > .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -t-text;
+    -fx-padding: 5 8;
+}
+
+.combo-box.t-input > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 8 0 4;
+}
+
+.combo-box.t-input > .arrow-button > .arrow {
+    -fx-background-color: #7C5BD9;
+}
+
+.date-picker.t-input > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 5 8;
+    -fx-effect: none;
+}
+
+/* Spinner : durée, rang, minutes */
+.t-spinner {
+    -fx-background-color: transparent;
+}
+
+.t-spinner > .text-field {
+    -fx-font-weight: bold;
+}
+
+.t-spinner > .increment-arrow-button,
+.t-spinner > .decrement-arrow-button {
+    -fx-background-color: -t-violet-soft;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.t-spinner > .increment-arrow-button:hover,
+.t-spinner > .decrement-arrow-button:hover {
+    -fx-background-color: #E2D8FF;
+}
+
+.t-spinner > .increment-arrow-button > .increment-arrow,
+.t-spinner > .decrement-arrow-button > .decrement-arrow {
+    -fx-background-color: -t-violet;
+}
+
+/* ==========================================================================
+   5. PASTILLES DE STATUT
+   ========================================================================== */
+
+.t-chip {
+    -fx-background-radius: 20;
+    -fx-padding: 4 11;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.t-chip-ok {
+    -fx-background-color: -t-green-soft;
+    -fx-text-fill: -t-green;
+}
+
+.t-chip-warn {
+    -fx-background-color: -t-orange-soft;
+    -fx-text-fill: #986515;
+}
+
+.t-chip-danger {
+    -fx-background-color: -t-danger-soft;
+    -fx-text-fill: -t-danger;
+}
+
+.t-chip-neutral {
+    -fx-background-color: -t-violet-soft;
+    -fx-text-fill: -t-violet-text;
+}
+
+/* ==========================================================================
+   6. TABLEAU DE DONNÉES (liste des cours)
+   ========================================================================== */
+
+.t-table-head {
+    -fx-background-color: -t-violet-soft;
+    -fx-background-radius: 8;
+    -fx-padding: 11 14;
+}
+
+.t-th {
+    -fx-text-fill: #49366F;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.t-row {
+    -fx-padding: 12 14;
+    -fx-background-color: -t-surface;
+    -fx-border-color: transparent transparent -t-border-soft transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.t-row:hover {
+    -fx-background-color: -t-row-hover;
+}
+
+.t-cell {
+    -fx-text-fill: -t-text-body;
+    -fx-font-size: 12px;
+}
+
+.t-cell-strong {
+    -fx-text-fill: -t-text;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+}
+
+.t-cell-sub {
+    -fx-text-fill: #898296;
+    -fx-font-size: 11px;
+}
+
+/* ==========================================================================
+   7. CARTES STATISTIQUES
+   ========================================================================== */
+
+.card.t-stat {
+    -fx-padding: 18 20;
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: #ECE8F2;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.06), 12, 0, 0, 3);
+}
+
+.card.t-stat:hover {
+    -fx-border-color: -t-violet-border;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.14), 14, 0, 0, 4);
+}
+
+.t-stat-box {
+    -fx-background-radius: 10;
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-pref-width: 44;
+    -fx-pref-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+}
+
+.t-stat-box.t-tone-violet { -fx-background-color: -t-violet-soft; }
+.t-stat-box.t-tone-blue   { -fx-background-color: -t-blue-soft; }
+.t-stat-box.t-tone-orange { -fx-background-color: -t-orange-soft; }
+.t-stat-box.t-tone-rose   { -fx-background-color: -t-rose-soft; }
+
+.t-stat-icon { -fx-icon-size: 19px; }
+.t-stat-box.t-tone-violet .t-stat-icon { -fx-icon-color: -t-violet; }
+.t-stat-box.t-tone-blue .t-stat-icon   { -fx-icon-color: -t-blue; }
+.t-stat-box.t-tone-orange .t-stat-icon { -fx-icon-color: -t-orange; }
+.t-stat-box.t-tone-rose .t-stat-icon   { -fx-icon-color: -t-rose; }
+
+/* Sert aussi de titre de leçon dans la prévisualisation */
+.t-stat-value {
+    -fx-text-fill: -t-text;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.t-stat-label {
+    -fx-text-fill: -t-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* ==========================================================================
+   8. LISTES, LIGNES DE LEÇONS ET AVATARS
+   ========================================================================== */
+
+/* Ligne de leçon, d'exemple, de ressource, de structure du cours */
+.t-list-row {
+    -fx-padding: 11 8;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent transparent -t-border-soft transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.t-list-row:hover {
+    -fx-background-color: -t-row-hover;
+}
+
+/* Numéro de chapitre */
+.t-avatar {
+    -fx-background-color: -t-violet;
+    -fx-background-radius: 100;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-pref-width: 36;
+    -fx-pref-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.28), 6, 0, 0, 2);
+}
+
+/* ==========================================================================
+   9. ÉTATS VIDES
+   ========================================================================== */
+
+.t-empty {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: #D9D1EC;
+    -fx-border-style: segments(6, 5);
+    -fx-border-radius: 12;
+    -fx-padding: 36;
+}
+
+.t-empty-icon {
+    -fx-icon-color: #B8A8E8;
+    -fx-icon-size: 36px;
+}
+
+/* ==========================================================================
+   10. DIALOGUES (exemple de code, ressource, confirmation)
+   ========================================================================== */
+
+.dialog-pane.t-dialog {
+    -fx-background-color: -t-surface;
+    -fx-font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+.t-dialog .header-panel {
+    -fx-background-color: -t-violet-soft;
+    -fx-padding: 18 22;
+    -fx-border-color: transparent transparent #E2D8FF transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.t-dialog .header-panel .label {
+    -fx-text-fill: -t-violet-dark;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.t-dialog .content.label {
+    -fx-text-fill: -t-text-body;
+    -fx-font-size: 12px;
+}
+
+.t-dialog .button-bar {
+    -fx-padding: 4 8 8 8;
+}
+
+.t-dialog .button-bar .button {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 8;
+    -fx-border-color: -t-border;
+    -fx-border-radius: 8;
+    -fx-text-fill: -t-text-body;
+    -fx-font-weight: bold;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.t-dialog .button-bar .button:hover {
+    -fx-background-color: #F4F0FF;
+    -fx-border-color: -t-violet-border;
+}
+
+.t-dialog .button-bar .button:default {
+    -fx-background-color: -t-violet;
+    -fx-border-color: -t-violet;
+    -fx-text-fill: white;
+}
+
+.t-dialog .button-bar .button:default:hover {
+    -fx-background-color: -t-violet-hover;
+    -fx-border-color: -t-violet-hover;
+}
+
+/* ==========================================================================
+   11. ACCENTS ET BLOCS D'INFORMATION
+   ========================================================================== */
+
+/* « À corriger avant la publication » */
+.t-accent-yellow {
+    -fx-background-color: -t-yellow-soft;
+    -fx-background-radius: 8;
+    -fx-border-color: #F2DE96;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: -t-yellow-text;
+}
+
+.t-accent-yellow .label {
+    -fx-text-fill: -t-yellow-text;
+}
+
+.t-accent-yellow .ikonli-font-icon {
+    -fx-icon-color: #B88900;
+}
+
+/* ==========================================================================
+   12. COMPOSANTS GLOBAUX
+   ========================================================================== */
+
+/* Barres de défilement fines */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-pref-width: 10;
+}
+
+.scroll-bar > .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar > .thumb {
+    -fx-background-color: #D5CBEE;
+    -fx-background-radius: 10;
+    -fx-background-insets: 2;
+}
+
+.scroll-bar > .thumb:hover {
+    -fx-background-color: #B8A8E8;
+}
+
+.scroll-bar > .increment-button,
+.scroll-bar > .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: " ";
+}
+
+/* Infobulles des boutons icônes */
+.tooltip {
+    -fx-background-color: -t-violet-dark;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 6 10;
+}
+
+/* Menu déroulant des ComboBox */
+.combo-box-popup > .list-view {
+    -fx-background-color: -t-surface;
+    -fx-background-radius: 8;
+    -fx-border-color: -t-border;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.16), 14, 0, 0, 4);
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 8 12;
+    -fx-text-fill: -t-text;
+    -fx-font-size: 12px;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: -t-violet-soft;
+    -fx-text-fill: -t-violet-dark;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: -t-violet;
+    -fx-text-fill: white;
+}

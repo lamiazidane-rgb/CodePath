@@ -1,0 +1,20 @@
+/* Variables de la charte : modifier ici change toute l'application */
+.root {
+    -pylo-primary: #7e59ca;
+    -pylo-primary-dark: #4F2887;
+    -pylo-accent: #FFC72C;
+    -pylo-bg: #F7F5FF;
+    -pylo-surface: #FFFFFF;
+    -pylo-border: #ECE8F7;
+    -pylo-text: #2d2149;
+    -pylo-muted: #7A6F99;
+    -pylo-sidebar-top: #A98BDB;
+    -pylo-sidebar-bottom: #4A2A73;
+
+    -fx-font-family: "Poppins", "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+}
+
+.app-root {
+    -fx-background-color: -pylo-bg;
+}

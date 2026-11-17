@@ -1,0 +1,436 @@
+/*
+ * PYLO - Prévisualisation d'une leçon (vue apprenant)
+ * Page : CoursDetailView.LeconPreviewView + LessonRenderer
+ * Chargé par la vue : /css/pages/teacher-lesson-preview.css
+ *
+ * SOMMAIRE
+ *   1. Variables
+ *   2. Bandeau « Vue apprenant »
+ *   3. Bandeau d'introduction de la leçon (hero)
+ *   4. Cartes et titres de section
+ *   5. Contenu théorique (titres, paragraphes, listes, tableaux, images)
+ *   6. Exemples de code
+ *   7. Ressources
+ */
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+
+.pv-root {
+    -pv-violet: #6C3CE9;
+    -pv-violet-dark: #24104F;
+    -pv-violet-text: #5730B5;
+    -pv-violet-soft: #F0EBFF;
+    -pv-yellow: #F5C542;
+    -pv-text: #30264B;
+    -pv-body: #3E3656;
+    -pv-muted: #817A91;
+    -pv-border: #E8E3F1;
+    -pv-surface: #FFFFFF;
+    -pv-code-bg: #1E1B2E;
+    -pv-code-text: #F5F3FF;
+}
+
+/* ==========================================================================
+   2. BANDEAU « VUE APPRENANT »
+   ========================================================================== */
+
+.pv-banner {
+    -fx-background-color: linear-gradient(to right, #F0EBFF, #F9F7FF);
+    -fx-background-radius: 12;
+    -fx-border-color: #DCD0FA;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 12 18;
+}
+
+.pv-banner-icon {
+    -fx-icon-color: -pv-violet;
+    -fx-icon-size: 18px;
+}
+
+.pv-banner-title {
+    -fx-text-fill: -pv-violet-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.pv-banner-text {
+    -fx-text-fill: -pv-muted;
+    -fx-font-size: 12px;
+}
+
+/* ==========================================================================
+   3. BANDEAU D'INTRODUCTION (HERO)
+   ========================================================================== */
+
+.pv-hero {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #2B1466, #6C3CE9);
+    -fx-background-radius: 16;
+    -fx-padding: 28 32;
+    -fx-effect: dropshadow(gaussian, rgba(72, 32, 174, 0.30), 22, 0, 0, 8);
+}
+
+.pv-kicker {
+    -fx-text-fill: -pv-yellow;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.pv-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.pv-lead {
+    -fx-text-fill: #E4DAFF;
+    -fx-font-size: 13.5px;
+    -fx-line-spacing: 3;
+}
+
+.pv-meta {
+    -fx-padding: 6 0 0 0;
+}
+
+.pv-meta-item {
+    -fx-background-color: rgba(255, 255, 255, 0.14);
+    -fx-background-radius: 20;
+    -fx-padding: 6 13;
+}
+
+.pv-meta-icon {
+    -fx-icon-color: -pv-yellow;
+    -fx-icon-size: 13px;
+}
+
+.pv-meta-text {
+    -fx-text-fill: #F3EEFF;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   4. CARTES ET TITRES DE SECTION
+   ========================================================================== */
+
+.pv-card {
+    -fx-background-color: -pv-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: #ECE8F2;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 24 28;
+    -fx-effect: dropshadow(gaussian, rgba(36, 16, 79, 0.06), 14, 0, 0, 3);
+}
+
+.pv-section-icon-box {
+    -fx-background-color: -pv-violet-soft;
+    -fx-background-radius: 10;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-pref-width: 36;
+    -fx-pref-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+.pv-section-icon {
+    -fx-icon-color: -pv-violet;
+    -fx-icon-size: 17px;
+}
+
+.pv-section-title {
+    -fx-text-fill: -pv-text;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   5. CONTENU THÉORIQUE
+   (les classes ci-dessous sont portées par des noeuds Text et TextFlow)
+   ========================================================================== */
+
+.pv-flow {
+    -fx-line-spacing: 5;
+}
+
+.pv-text {
+    -fx-fill: -pv-body;
+    -fx-font-size: 14px;
+}
+
+.pv-h1 {
+    -fx-fill: -pv-violet-dark;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.pv-h2 {
+    -fx-fill: -pv-text;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.pv-h3 {
+    -fx-fill: #4C2BB0;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.pv-bold {
+    -fx-font-weight: bold;
+}
+
+.pv-italic {
+    -fx-font-style: italic;
+}
+
+.pv-code-inline {
+    -fx-font-family: "Consolas", "Menlo", monospace;
+    -fx-fill: -pv-violet-text;
+}
+
+.pv-link-text {
+    -fx-fill: -pv-violet;
+    -fx-underline: true;
+}
+
+/* Blocs de titres */
+.pv-heading-block {
+    -fx-padding: 8 0 0 0;
+}
+
+.pv-heading-block-1 {
+    -fx-padding: 10 0 6 0;
+}
+
+.pv-heading-block-2 {
+    -fx-padding: 10 0 8 0;
+    -fx-border-color: transparent transparent -pv-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Listes */
+.pv-list-number {
+    -fx-text-fill: -pv-violet;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: bold;
+    -fx-min-width: 24;
+}
+
+.pv-bullet-wrap {
+    -fx-padding: 8 4 0 4;
+}
+
+.pv-bullet-dot {
+    -fx-background-color: -pv-violet;
+    -fx-background-radius: 6;
+    -fx-min-width: 6;
+    -fx-min-height: 6;
+    -fx-pref-width: 6;
+    -fx-pref-height: 6;
+    -fx-max-width: 6;
+    -fx-max-height: 6;
+}
+
+/* Tableaux */
+.pv-table-frame {
+    -fx-background-color: -pv-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: #E3DEEC;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.pv-th-cell {
+    -fx-background-color: -pv-violet-soft;
+    -fx-padding: 11 15;
+    -fx-border-color: transparent transparent #E3DEEC transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.pv-td-cell {
+    -fx-padding: 10 15;
+    -fx-border-color: transparent transparent #EEEAF4 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.pv-td-alt {
+    -fx-background-color: #FBFAFE;
+}
+
+.pv-th-text {
+    -fx-fill: #49366F;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.pv-td-text {
+    -fx-fill: -pv-body;
+    -fx-font-size: 12.5px;
+}
+
+/* Images */
+.pv-image-frame {
+    -fx-background-color: #F7F5FC;
+    -fx-background-radius: 12;
+    -fx-border-color: -pv-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+}
+
+.pv-caption {
+    -fx-text-fill: -pv-muted;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ==========================================================================
+   6. EXEMPLES DE CODE
+   ========================================================================== */
+
+.pv-example {
+    -fx-background-color: #FCFBFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #ECE6FA;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 18 20;
+}
+
+.pv-example-title {
+    -fx-text-fill: -pv-text;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.pv-example-desc {
+    -fx-text-fill: -pv-muted;
+    -fx-font-size: 12px;
+}
+
+.pv-sub-label {
+    -fx-text-fill: -pv-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Bloc de code sombre */
+.text-area.pv-code-area {
+    -fx-control-inner-background: -pv-code-bg;
+    -fx-background-color: -pv-code-bg;
+    -fx-background-radius: 10;
+    -fx-border-color: #2E2A45;
+    -fx-border-radius: 10;
+    -fx-text-fill: -pv-code-text;
+    -fx-font-family: "Consolas", "Menlo", monospace;
+    -fx-font-size: 12.5px;
+    -fx-highlight-fill: #6C3CE9;
+    -fx-highlight-text-fill: white;
+    -fx-padding: 0;
+}
+
+.text-area.pv-code-area .content {
+    -fx-background-color: -pv-code-bg;
+    -fx-background-radius: 10;
+    -fx-padding: 14 16;
+}
+
+.text-area.pv-code-area > .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* Bloc « résultat attendu » */
+.text-area.pv-output-area {
+    -fx-control-inner-background: #F3F0FA;
+    -fx-background-color: #F3F0FA;
+    -fx-background-radius: 10;
+    -fx-border-color: #E3DBF6;
+    -fx-border-radius: 10;
+    -fx-text-fill: -pv-text;
+    -fx-font-family: "Consolas", "Menlo", monospace;
+    -fx-font-size: 12.5px;
+    -fx-highlight-fill: #6C3CE9;
+    -fx-highlight-text-fill: white;
+    -fx-padding: 0;
+}
+
+.text-area.pv-output-area .content {
+    -fx-background-color: #F3F0FA;
+    -fx-background-radius: 10;
+    -fx-padding: 12 16;
+}
+
+.text-area.pv-output-area > .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* Explication : accent jaune sur le bord gauche */
+.pv-explain {
+    -fx-background-color: #FFFBEA;
+    -fx-background-radius: 10;
+    -fx-border-color: #F2DE96 #F2DE96 #F2DE96 #F5C542;
+    -fx-border-width: 1 1 1 4;
+    -fx-border-radius: 10;
+    -fx-padding: 12 16;
+}
+
+.pv-explain-text {
+    -fx-text-fill: #5B4A12;
+    -fx-font-size: 12.5px;
+    -fx-line-spacing: 3;
+}
+
+/* ==========================================================================
+   7. RESSOURCES
+   ========================================================================== */
+
+.pv-resource {
+    -fx-background-color: -pv-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: #ECE8F2;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 12 16;
+}
+
+.pv-resource:hover {
+    -fx-background-color: #FAF8FF;
+    -fx-border-color: #CFC2F5;
+    -fx-effect: dropshadow(gaussian, rgba(108, 60, 233, 0.12), 10, 0, 0, 3);
+}
+
+.pv-res-icon-box {
+    -fx-background-radius: 10;
+    -fx-min-width: 42;
+    -fx-min-height: 42;
+    -fx-pref-width: 42;
+    -fx-pref-height: 42;
+    -fx-max-width: 42;
+    -fx-max-height: 42;
+}
+
+.pv-res-icon-box.pv-tone-violet { -fx-background-color: #F0EBFF; }
+.pv-res-icon-box.pv-tone-blue   { -fx-background-color: #EAF0FF; }
+.pv-res-icon-box.pv-tone-orange { -fx-background-color: #FFF4D6; }
+.pv-res-icon-box.pv-tone-rose   { -fx-background-color: #FCEBF0; }
+
+.pv-res-icon { -fx-icon-size: 18px; }
+.pv-res-icon-box.pv-tone-violet .pv-res-icon { -fx-icon-color: #6C3CE9; }
+.pv-res-icon-box.pv-tone-blue .pv-res-icon   { -fx-icon-color: #3B6FD8; }
+.pv-res-icon-box.pv-tone-orange .pv-res-icon { -fx-icon-color: #B7791F; }
+.pv-res-icon-box.pv-tone-rose .pv-res-icon   { -fx-icon-color: #D95775; }
+
+.pv-res-title {
+    -fx-text-fill: -pv-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.pv-res-sub {
+    -fx-text-fill: -pv-muted;
+    -fx-font-size: 11px;
+}

@@ -1,0 +1,123 @@
+/* ===== Textes communs ===== */
+.card-heading { -fx-text-fill: -pylo-text; -fx-font-size: 15px; -fx-font-weight: bold; }
+.section-title { -fx-text-fill: -pylo-text; -fx-font-size: 17px; -fx-font-weight: bold; }
+
+.link {
+    -fx-text-fill: -pylo-primary-dark;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.link:hover { -fx-underline: true; }
+
+.accent-button {
+    -fx-background-color: -pylo-accent;
+    -fx-background-radius: 10;
+    -fx-text-fill: -pylo-primary-dark;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+.accent-button:hover { -fx-background-color: #F2B800; }
+.accent-button .ikonli-font-icon { -fx-icon-color: -pylo-primary-dark; -fx-icon-size: 14px; }
+
+/* ===== Bannière ===== */
+.hero-card {
+    -fx-background-color: -pylo-primary;
+    -fx-background-radius: 18;
+    -fx-padding: 26 30;
+}
+.hero-kicker { -fx-text-fill: -pylo-accent; -fx-font-size: 9px; -fx-font-weight: bold; }
+.hero-title { -fx-fill: white; -fx-font-size: 26px; -fx-font-weight: bold; }
+.hero-title-accent { -fx-fill: -pylo-accent; -fx-font-size: 26px; -fx-font-weight: bold; }
+.hero-text { -fx-text-fill: rgba(255, 255, 255, 0.92); -fx-font-size: 12px; }
+
+/* ===== Statuts ===== */
+.status-badge {
+    -fx-background-radius: 8;
+    -fx-padding: 2 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+.status-validated { -fx-background-color: #E1F4E8; -fx-text-fill: #2E7D4F; }
+.status-in-progress { -fx-background-color: #EDE7FB; -fx-text-fill: -pylo-primary-dark; }
+.status-locked { -fx-background-color: #ECEAF2; -fx-text-fill: #6B6585; }
+
+/* ===== Anneau de progression ===== */
+.ring-track { -fx-fill: transparent; -fx-stroke: #EDE7FB; -fx-stroke-width: 10; }
+.ring-arc {
+    -fx-fill: transparent;
+    -fx-stroke: -pylo-primary-dark;
+    -fx-stroke-width: 10;
+    -fx-stroke-line-cap: round;
+}
+.ring-percent { -fx-text-fill: -pylo-text; -fx-font-size: 24px; -fx-font-weight: bold; }
+.ring-caption { -fx-text-fill: -pylo-muted; -fx-font-size: 8px; }
+
+.progress-level { -fx-text-fill: -pylo-text; -fx-font-size: 13px; -fx-font-weight: bold; }
+.stat-courses { -fx-text-fill: #E0A100; -fx-font-size: 10px; }
+.stat-exercises { -fx-text-fill: #2E8B57; -fx-font-size: 10px; }
+
+/* ===== Cartes de niveau ===== */
+.level-card {
+    -fx-background-color: -pylo-surface;
+    -fx-background-radius: 16;
+    -fx-border-color: -pylo-border;
+    -fx-border-radius: 16;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgb(96 60 163 / 0.06), 10, 0, 0, 2);
+}
+.level-card-current {
+    -fx-background-color: #EFE8FB;
+    -fx-border-color: -pylo-primary;
+    -fx-border-width: 1.5;
+}
+.level-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 20px; }
+.level-card-locked .level-icon { -fx-icon-color: #8B84A6; }
+
+.level-name { -fx-text-fill: -pylo-text; -fx-font-size: 14px; -fx-font-weight: bold; }
+.level-subtitle { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }
+.level-meta { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }
+.level-percent { -fx-text-fill: -pylo-text; -fx-font-size: 10px; -fx-font-weight: bold; }
+.level-locked-text { -fx-text-fill: -pylo-muted; -fx-font-size: 11px; -fx-font-weight: bold; }
+
+.level-bar { -fx-pref-height: 6; }
+.level-bar > .track {
+    -fx-background-color: #E4DBF7;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+}
+.level-bar > .bar {
+    -fx-background-color: -pylo-primary-dark;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+
+/* ===== Activité récente ===== */
+.icon-box {
+    -fx-background-color: #F3F0FB;
+    -fx-background-radius: 10;
+    -fx-min-width: 36; -fx-min-height: 36;
+    -fx-pref-width: 36; -fx-pref-height: 36;
+    -fx-max-width: 36; -fx-max-height: 36;
+}
+.dash-icon { -fx-icon-color: -pylo-primary; -fx-icon-size: 16px; }
+.activity-text { -fx-text-fill: -pylo-text; -fx-font-size: 12px; -fx-font-weight: bold; }
+.activity-date { -fx-text-fill: -pylo-muted; -fx-font-size: 10px; }
+.check-icon { -fx-icon-color: #2E8B57; -fx-icon-size: 15px; }
+
+/* ===== Réussites ===== */
+.badge-box {
+    -fx-background-color: #F1EAFD;
+    -fx-background-radius: 14;
+    -fx-border-color: -pylo-accent;
+    -fx-border-width: 2;
+    -fx-border-radius: 14;
+    -fx-min-width: 56; -fx-min-height: 56;
+    -fx-pref-width: 56; -fx-pref-height: 56;
+    -fx-max-width: 56; -fx-max-height: 56;
+}
+.badge-box .dash-icon { -fx-icon-size: 22px; }
+.badge-name { -fx-text-fill: -pylo-text; -fx-font-size: 10px; }
